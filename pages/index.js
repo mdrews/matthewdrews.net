@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 
-const InputElement = () => {
-  
-  const [textHistory, setTextHistory] = useState([]);
-  
-  return(<div>
-    <input 
-      onChange={e => {
-        setTextHistory([...textHistory, e.target.value]);
-      }}
-      value={textHistory[textHistory.length-1]}
-      placeholder="Enter Some Text"
-    />
-    <br />{textHistory[textHistory.length-1]}<br />
-    {textHistory.map(item => {
-      return(<div>{item}</div>);
-    })}
-  </div>);
-}
+const TrackText = () => {
 
-export default InputElement;
+  const [textHistory, setTestHistory] = useState([]);
+
+  return(
+    <div>
+      <input 
+        placeholder="Enter Some Text"
+        value={textHistory[textHistory.length-1]}
+        onChange={e => setTestHistory(e.target.value)}
+      />
+      <div>{textHistory[textHistory.length-1]}</div>
+      {textHistory.map(textBlob => {
+        return(<div>{textBlob}</div>);
+      })
+      }
+    </div>
+  );
+}
