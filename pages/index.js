@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 
-const TrackText = () => {
-
-  const [textHistory, setTestHistory] = useState([]);
+const MessageHistory = () => {
+  
+  const [textHistory, setTextHistory] = useState([]);
 
   return(
     <div>
       <input 
-        placeholder="Enter Some Text"
+        onChange={e => {setTextHistoryHistory([...textHistory, e.target.value])}}
+        placeholder='Enter Some Text'
         value={textHistory[textHistory.length-1]}
-        onChange={e => setTestHistory(e.target.value)}
       />
       <div>{textHistory[textHistory.length-1]}</div>
-      {textHistory.map(textBlob => {
-        return(<div>{textBlob}</div>);
-      })
-      }
+      {textHistory.map(message => {
+        return(<div>{message}</div>);
+      })}
     </div>
-  );
+  )
 }
+
+export default MessageHistory;
