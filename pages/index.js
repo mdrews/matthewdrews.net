@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 const MessageTextHistory = () => {
-  
-  const [messageHistory, setMessageHistory] = useState([]);
 
+  const [messageHistory, setMessageHistory] = useState([]);
+  
   return(<div>
     <input
       onChange={e => setMessageHistory([...messageHistory, e.target.value])}
