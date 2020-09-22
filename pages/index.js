@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-// Comment
+// Comments
 
 const MessageTextHistory = () => {
 
