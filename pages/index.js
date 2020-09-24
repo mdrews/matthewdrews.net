@@ -1,21 +1,20 @@
 import React, {useState} from 'react';
-// Comments
 
-const MessageTextHistory = () => {
+const MessageHistory = () => {
 
-  const [messageHistory, setMessageHistory] = useState([]);
-  
+  const [textHistory, setTextHistory] = useState([]);
+
   return(<div>
-    <input
-      onChange={e => setMessageHistory([...messageHistory, e.target.value])}
-      placeholder='Enter Some Text'
-      value={messageHistory[messageHistory.length-1]}
+    <input 
+      onChange={e => setTextHistory([...textHistory, e.target.value])}
+      placeholder="Enter Some Text"
+      value={textHistory[textHistory.length-1]}
     />
-    <div>{messageHistory[messageHistory.length-1]}</div>
-    {messageHistory.map(message => {
-      return(<div>{message}</div>);
+    <div>{textHistory[textHistory.length-1]}</div>
+    {textHistory.map(text => {
+      return(<div>{text}</div>);
     })}
   </div>);
 }
 
-export default MessageTextHistory;
+export default MessageHistory;
