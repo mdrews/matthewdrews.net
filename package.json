@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/mdrews/matthewdrews.com#readme",
   "dependencies": {
-    "next": "^9.5.2",
+    "next": "^9.5.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
