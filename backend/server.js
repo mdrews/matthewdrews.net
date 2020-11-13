@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
-const port = 5000;
+const port = process.env.port || 5000;
 
 app.listen(port, () => {
   console.log(`Server alive and listening at port ${port}`);
