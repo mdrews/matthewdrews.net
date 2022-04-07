@@ -1,0 +1,1 @@
+export default ['AAHED','AALII','AARGH','ABACA','ABACI'];
