@@ -1,1 +1,3 @@
-export default ['AAHED','AALII','AARGH','ABACA','ABACI'];
+const raw = ['AAHED','AALII','AARGH','ABACA','ABACI'];
+
+module.exports = { raw };

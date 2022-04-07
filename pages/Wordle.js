@@ -1,12 +1,13 @@
 // import './App.css';
-const wordleList = require('../src/wordleDict2')
+import { raw } from '../src/wordleDict2'
 
 function Wordle() {
 
-  const wordle = wordleList.toString(); //Object.values(wordleList);
-  console.log(typeof(wordle));
-  console.log(wordle.substring(0, 4));
-  console.log(wordle[3]);
+  console.log(raw);
+  // const wordle = raw.toString(); //Object.values(wordleList);
+  // onsole.log(typeof(wordle));
+  //console.log(wordle.substring(0, 4));
+  //console.log(wordle[3]);
   const green = []
   const yellow = [['T', 2], ['A', 3], ['L', 4]]
   const rejected = ['S', 'E']
