@@ -1,9 +1,9 @@
 // import './App.css';
-import { raw } from '../src/wordleDict2'
+import { wordleList } from '../src/wordleDict3'
 
 function Wordle() {
 
-  console.log(raw);
+  console.log(wordleList);
   // const wordle = raw.toString(); //Object.values(wordleList);
   // onsole.log(typeof(wordle));
   //console.log(wordle.substring(0, 4));
@@ -11,9 +11,9 @@ function Wordle() {
   const green = []
   const yellow = [['T', 2], ['A', 3], ['L', 4]]
   const rejected = ['S', 'E']
+  // const filteredWordle = wordle;
   // const [getRejected, setRejected] = useState();
-  // let filteredWordle = wordle;
-  // console.log(wordle[5]);
+  let filteredWordle = wordleList;
   
   // REJECTED
   // for(let x = 0; x < rejected.length; x++) {
