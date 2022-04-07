@@ -1,0 +1,14 @@
+const fs = require('fs');
+const raw = require('./TWL06');
+
+// const wordle = raw.split(/\n/);
+const wordleRaw = Object.values(raw);
+console.log(typeof(wordleRaw.toString()));
+const wordle = wordleRaw.toString().split(/\n/);
+console.log(wordle[4]);
+console.log(wordle.length);
+let filteredWordle = wordle.filter(word => word.length === 5);
+console.log(filteredWordle.length);
+fs.writeFile('./wordleDict.js', filteredWordle.toString(), err => {
+  console.log(`Error: ${err}`);
+});
