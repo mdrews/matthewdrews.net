@@ -9,6 +9,7 @@ function Wordle() {
   // const green = []
   const yellow = []
   let filteredWordle = wordleList;
+  let greenArray = [];
   
   // REJECTED
   for(let x = 0; x < rejected.length; x++) {
@@ -17,21 +18,19 @@ function Wordle() {
   let joinedList = filteredWordle.join('');
 
   // GREEN
-  for (let x = 0; x < green.length; x++) {
+  for (let x = 0; x < greenArray.length; x++) {
     let letter = green[x][0];
     let position = green[x][1] - 1;
     filteredWordle = filteredWordle.filter(word => word.includes(letter) && word[position] === letter)
   }
+
   // YELLOW
   for (let x = 0; x < yellow.length; x++) {
-    console.log(filteredWordle)
     let letter = yellow[x][0]
     let position = yellow[x][1] - 1
-    console.log(letter)
-    console.log(position)
     filteredWordle = filteredWordle.filter(word => word.includes(letter) && word[position] !== letter)
   }
-  // filteredWordle = filteredWordle.filter(word => word.includes('R') && word[3] !== 'R');
+  
   let letterGrid = [];
   for (let x = 0; x < joinedList.length; x++) {
     let letter = joinedList[x];
@@ -75,10 +74,10 @@ function Wordle() {
   const updateRejectedList = (e) => {
     setRejected(e.target.value.toUpperCase());
   }
-  
-  // const updateGreenList = (e) => {
-  //   let input = e.target.value
-  // }
+
+  const updateGreenList = (e) => {
+    let input = e.target.value
+  }
 
   return (
     <div className="App">
