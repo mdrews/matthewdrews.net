@@ -4,9 +4,10 @@ import { wordleList } from '../src/wordleDict'
 function Wordle() {
 
   const [rejected, setRejected] = useState('');
+  const [green, setGreen] = useState();
 
-  const green = [['O', 2]]
-  const yellow = [['A', 3], ['A', 5], ['R', 4]]
+  // const green = []
+  const yellow = []
   let filteredWordle = wordleList;
   
   // REJECTED
@@ -74,12 +75,9 @@ function Wordle() {
   console.log(filteredWordle.filter(word => word.includes(sortable[0][0])))
 
   function updateRejectedList(e) {
-    console.log(`FROM INPUT: ${e.target.value}`);
     let input = e.target.value;
     input = input.toUpperCase();
-    console.log(`MORE: ${input}`)
     setRejected(e.target.value.toUpperCase());
-    // return e.target.value;
   }
 
   return (
@@ -94,6 +92,11 @@ function Wordle() {
             type="text" 
             value={rejected}
             onChange={e => updateRejectedList(e)}
+          />
+          <input
+            type="text"
+            value={green}
+            onChange={e => updateGreenList(e)}
           />
         </div>
         <div>
