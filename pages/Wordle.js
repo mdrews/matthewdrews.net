@@ -8,9 +8,9 @@ function Wordle() {
   // onsole.log(typeof(wordle));
   //console.log(wordle.substring(0, 4));
   //console.log(wordle[3]);
-  const green = []
-  const yellow = [['T', 2], ['A', 3], ['L', 4]]
-  const rejected = ['S', 'E']
+  const green = [['O', 2]]
+  const yellow = [['A', 3], ['A', 5], ['R', 4]]
+  const rejected = ['S', 'T', 'L', 'E', 'M', 'I']
   // const filteredWordle = wordle;
   // const [getRejected, setRejected] = useState();
   let filteredWordle = wordleList;
@@ -62,16 +62,17 @@ function Wordle() {
   let bestList = filteredWordle.filter(word => 
     word.includes(sortable[0][0])
     && word.includes(sortable[1][0])
-    // && word.includes(sortable[2][0])
+    && word.includes(sortable[2][0])
     // && word.includes(sortable[3][0])
     )
 
   console.log('best')
   console.log(bestList)
   console.log(filteredWordle.filter(word => word.includes(sortable[0][0])))
-  function updateWordList(e) {
+
+  function updateRejectedList(e) {
     console.log(`FROM INPUT: ${e.target.value}`);
-    return e.target.value;
+    // return e.target.value;
   }
 
   return (
@@ -83,6 +84,7 @@ function Wordle() {
         <input 
           type="text"
           value="test1"
+          onChange={e => updateRejectedList(e)}
         />
         <div>words: {filteredWordle.length}</div>
         <div>{filteredWordle.join(' ')}</div>
