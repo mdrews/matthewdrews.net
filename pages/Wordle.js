@@ -7,12 +7,11 @@ function Wordle() {
 
   const green = [['O', 2]]
   const yellow = [['A', 3], ['A', 5], ['R', 4]]
-  // const rejected = ['S', 'T', 'L', 'E', 'M', 'I']
   let filteredWordle = wordleList;
   
   // REJECTED
   for(let x = 0; x < rejected.length; x++) {
-    filteredWordle = filteredWordle.filter(word => !word.includes(rejected[x]));
+    filteredWordle = filteredWordle.filter(word => !word.includes(rejected[x]))
   }
   let joinedList = filteredWordle.join('');
 
@@ -54,15 +53,24 @@ function Wordle() {
   console.log(sortable[1])
   console.log(`sortable2: ${sortable[1]}`)
 
-  let bestList = filteredWordle.filter(word => 
+  let bestList1 = filteredWordle.filter(word => 
+    word.includes(sortable[0][0])
+    && word.includes(sortable[1][0])
+    )
+
+  let bestList2 = filteredWordle.filter(word => 
     word.includes(sortable[0][0])
     && word.includes(sortable[1][0])
     && word.includes(sortable[2][0])
-    // && word.includes(sortable[3][0])
     )
 
-  console.log('best')
-  console.log(bestList)
+  let bestList3 = filteredWordle.filter(word => 
+    word.includes(sortable[0][0])
+    && word.includes(sortable[1][0])
+    && word.includes(sortable[2][0])
+    && word.includes(sortable[3][0])
+    )
+
   console.log(filteredWordle.filter(word => word.includes(sortable[0][0])))
 
   function updateRejectedList(e) {
@@ -87,6 +95,24 @@ function Wordle() {
             value={rejected}
             onChange={e => updateRejectedList(e)}
           />
+        </div>
+        <div>
+          <p>
+            <label>Best Choices 1</label>
+            <div>{bestList1.join(' ')}</div>
+          </p>
+        </div>
+        <div>
+          <p>
+            <label>Best Choices 2</label>
+            <div>{bestList2.join(' ')}</div>
+          </p>
+        </div>
+        <div>
+          <p>
+            <label>Best Choices 3</label>
+            <div>{bestList3.join(' ')}</div>
+          </p>
         </div>
         <div>words: {filteredWordle.length}</div>
         <div>{filteredWordle.join(' ')}</div>
