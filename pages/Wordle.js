@@ -72,11 +72,10 @@ function Wordle() {
     && word.includes(sortable[3][0])
     )
 
-  console.log(filteredWordle.filter(word => word.includes(sortable[0][0])))
-
-  function updateRejectedList(e) {
+  const updateRejectedList = (e) => {
     setRejected(e.target.value.toUpperCase());
   }
+  
   // const updateGreenList = (e) => {
   //   let input = e.target.value
   // }
