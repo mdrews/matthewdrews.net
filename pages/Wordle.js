@@ -1,18 +1,13 @@
-// import './App.css';
-import { wordleList } from '../src/wordleDict3'
+import React, {useState} from 'react';
+import { wordleList } from '../src/wordleDict'
 
 function Wordle() {
 
-  console.log(wordleList);
-  // const wordle = raw.toString(); //Object.values(wordleList);
-  // onsole.log(typeof(wordle));
-  //console.log(wordle.substring(0, 4));
-  //console.log(wordle[3]);
+  const [rejected, setRejected] = useState('');
+
   const green = [['O', 2]]
   const yellow = [['A', 3], ['A', 5], ['R', 4]]
-  const rejected = ['S', 'T', 'L', 'E', 'M', 'I']
-  // const filteredWordle = wordle;
-  // const [getRejected, setRejected] = useState();
+  // const rejected = ['S', 'T', 'L', 'E', 'M', 'I']
   let filteredWordle = wordleList;
   
   // REJECTED
@@ -72,6 +67,10 @@ function Wordle() {
 
   function updateRejectedList(e) {
     console.log(`FROM INPUT: ${e.target.value}`);
+    let input = e.target.value;
+    input = input.toUpperCase();
+    console.log(`MORE: ${input}`)
+    setRejected(e.target.value.toUpperCase());
     // return e.target.value;
   }
 
@@ -81,11 +80,19 @@ function Wordle() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <input 
+        {/* <input 
           type="text"
           value="test1"
           onChange={e => updateRejectedList(e)}
-        />
+        /> */}
+        <div>
+          <label>Rejected</label>
+          <input 
+            type="text" 
+            value={rejected}
+            onChange={e => updateRejectedList(e)}
+          />
+        </div>
         <div>words: {filteredWordle.length}</div>
         <div>{filteredWordle.join(' ')}</div>
         {/* <div>{filteredWordle.forEach(word => <p>{word}</p>)}</div> */}
