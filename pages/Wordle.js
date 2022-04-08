@@ -80,11 +80,6 @@ function Wordle() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        {/* <input 
-          type="text"
-          value="test1"
-          onChange={e => updateRejectedList(e)}
-        /> */}
         <div>
           <label>Rejected</label>
           <input 
@@ -95,7 +90,6 @@ function Wordle() {
         </div>
         <div>words: {filteredWordle.length}</div>
         <div>{filteredWordle.join(' ')}</div>
-        {/* <div>{filteredWordle.forEach(word => <p>{word}</p>)}</div> */}
       </header>
     </div>
   );
