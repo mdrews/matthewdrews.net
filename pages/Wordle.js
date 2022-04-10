@@ -9,7 +9,7 @@ function Wordle() {
   // const green = []
   const yellow = []
   let filteredWordle = wordleList;
-  let greenArray = [];
+  let greenArray = [['S', 1], ['T', 2], ['A', 3]];
   
   // REJECTED
   for(let x = 0; x < rejected.length; x++) {
@@ -18,9 +18,11 @@ function Wordle() {
   let joinedList = filteredWordle.join('');
 
   // GREEN
+  console.log(`Green array`)
+  console.log(greenArray)
   for (let x = 0; x < greenArray.length; x++) {
-    let letter = green[x][0];
-    let position = green[x][1] - 1;
+    let letter = greenArray[x][0];
+    let position = greenArray[x][1] - 1;
     filteredWordle = filteredWordle.filter(word => word.includes(letter) && word[position] === letter)
   }
 
@@ -72,11 +74,30 @@ function Wordle() {
     )
 
   const updateRejectedList = (e) => {
-    setRejected(e.target.value.toUpperCase());
+    setRejected(e.target.value.toUpperCase())
   }
 
   const updateGreenList = (e) => {
-    let input = e.target.value
+    let input = e.target.value.toUpperCase();
+    // let validInput = true;
+    // for (let x = 0; x < input.length; x++) {
+    //   if (input.length < 2) { console.log('too short'); validInput = false; } // Need at least 2 characters for array
+    //   if (x % 2 === 0 && Number.isInteger(parseInt(input[x]))) {
+    //     console.log('LETTER')
+    //     validInput = false
+    //   }
+    //   if (x % 2 === 1 && !Number.isInteger(parseInt(input[x]))) {
+    //     console.log('NUMBER')
+    //     validInput = false;
+    //   }
+    // }
+    // if(validInput === true) {
+    //   console.log("HERE!!!!!")
+    //   for (let x = 0; x < validInput.length; x + 2) {
+    //     greenArray.push([input[x], input[x+1]])
+    //   }
+    // }
+    // setGreen(e.target.value.toUpperCase())
   }
 
   return (
@@ -86,17 +107,25 @@ function Wordle() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <div>
-          <label>Rejected</label>
-          <input 
-            type="text" 
-            value={rejected}
-            onChange={e => updateRejectedList(e)}
-          />
-          <input
-            type="text"
-            value={green}
-            onChange={e => updateGreenList(e)}
-          />
+          
+          <p>
+            <label>Rejected</label>
+            <input 
+              type="text" 
+              value={rejected}
+              onChange={e => updateRejectedList(e)}
+            />
+          </p>
+          
+          <p>
+            <label>Green</label>
+            <input
+              type="text"
+              value={green}
+              onChange={e => updateGreenList(e)}
+            />
+          </p>
+          
         </div>
         <div>
           <p>
