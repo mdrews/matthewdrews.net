@@ -7,9 +7,9 @@ function Wordle() {
   const [green, setGreen] = useState();
 
   // const green = []
-  const yellow = []
+  const yellow = [['L', 4]]
   let filteredWordle = wordleList;
-  let greenArray = [['S', 1], ['T', 2], ['A', 3]];
+  let greenArray = [['A', 3], ['C', 4]];
   
   // REJECTED
   for(let x = 0; x < rejected.length; x++) {
@@ -79,13 +79,15 @@ function Wordle() {
 
   const updateGreenList = (e) => {
     let input = e.target.value.toUpperCase();
-    // let validInput = true;
-    // for (let x = 0; x < input.length; x++) {
-    //   if (input.length < 2) { console.log('too short'); validInput = false; } // Need at least 2 characters for array
-    //   if (x % 2 === 0 && Number.isInteger(parseInt(input[x]))) {
-    //     console.log('LETTER')
-    //     validInput = false
-    //   }
+    let validInput = false;
+    for (let x = 0; x < input.length; x++) {
+      if (input.length >= 2) { 
+        validInput = true; 
+      } 
+      // if (x % 2 === 0 && Number.isInteger(parseInt(input[x]))) {
+      //   console.log('LETTER')
+      //   validInput = true
+      // }
     //   if (x % 2 === 1 && !Number.isInteger(parseInt(input[x]))) {
     //     console.log('NUMBER')
     //     validInput = false;
