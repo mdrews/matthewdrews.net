@@ -73,33 +73,55 @@ function Wordle() {
     && word.includes(sortable[3][0])
     )
 
+  const validateArray = (arr) => {
+    let validatedArray = false;
+    if (arr.length < 2 || arr.length % 2 === 1) {
+      return false;
+    }
+    for (let x = 0; x < arr.length; x++) {
+      let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      if (x % 2 === 0 && !letters.includes(arr[x])) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   const updateRejectedList = (e) => {
     setRejected(e.target.value.toUpperCase())
   }
 
   const updateGreenList = (e) => {
     let input = e.target.value.toUpperCase();
-    let validInput = false;
-    for (let x = 0; x < input.length; x++) {
-      if (input.length >= 2) { 
-        validInput = true; 
-      } 
-      // if (x % 2 === 0 && Number.isInteger(parseInt(input[x]))) {
-      //   console.log('LETTER')
-      //   validInput = true
-      // }
-    //   if (x % 2 === 1 && !Number.isInteger(parseInt(input[x]))) {
-    //     console.log('NUMBER')
-    //     validInput = false;
-    //   }
-    // }
-    // if(validInput === true) {
-    //   console.log("HERE!!!!!")
-    //   for (let x = 0; x < validInput.length; x + 2) {
-    //     greenArray.push([input[x], input[x+1]])
-    //   }
-    // }
-    // setGreen(e.target.value.toUpperCase())
+    if(validateArray(input) === true) {
+
+      console.log('IT"S TRUE');
+      greenArray = input
+
+    }
+
+  //   let input = e.target.value.toUpperCase();
+  //   let validInput = false;
+  //   // for (let x = 0; x < input.length; x++) {
+  //   //   if (input.length >= 2) { 
+  //   //     validInput = true; 
+  //   //   } 
+  //     // if (x % 2 === 0 && Number.isInteger(parseInt(input[x]))) {
+  //     //   console.log('LETTER')
+  //     //   validInput = true
+  //     // }
+  //   //   if (x % 2 === 1 && !Number.isInteger(parseInt(input[x]))) {
+  //   //     console.log('NUMBER')
+  //   //     validInput = false;
+  //   //   }
+  //   // }
+  //   // if(validInput === true) {
+  //   //   console.log("HERE!!!!!")
+  //   //   for (let x = 0; x < validInput.length; x + 2) {
+  //   //     greenArray.push([input[x], input[x+1]])
+  //   //   }
+  //   // setGreen(e.target.value.toUpperCase())
   }
 
   return (
