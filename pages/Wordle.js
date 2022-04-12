@@ -7,9 +7,9 @@ function Wordle() {
   const [green, setGreen] = useState();
 
   // const green = []
-  const yellow = [['L', 4]]
+  const yellow = []
   let filteredWordle = wordleList;
-  let greenArray = [['A', 3], ['C', 4]];
+  let greenArray = [['S', 1], ['A', 4]]
   
   // REJECTED
   for(let x = 0; x < rejected.length; x++) {
@@ -81,6 +81,9 @@ function Wordle() {
     for (let x = 0; x < arr.length; x++) {
       let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       if (x % 2 === 0 && !letters.includes(arr[x])) {
+        return false;
+      }
+      if (x % 2 === 1 && !(arr[x] >= 1 && arr[x] <= 5)) {
         return false;
       }
     }
