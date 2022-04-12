@@ -4,12 +4,11 @@ import { wordleList } from '../src/wordleDict'
 function Wordle() {
 
   const [rejected, setRejected] = useState('');
-  const [green, setGreen] = useState();
+  const [greenArray, setGreenArray] = useState('');
 
   // const green = []
   const yellow = []
   let filteredWordle = wordleList;
-  let greenArray = [['S', 1], ['A', 4]]
   
   // REJECTED
   for(let x = 0; x < rejected.length; x++) {
@@ -74,7 +73,6 @@ function Wordle() {
     )
 
   const validateArray = (arr) => {
-    let validatedArray = false;
     if (arr.length < 2 || arr.length % 2 === 1) {
       return false;
     }
@@ -87,7 +85,6 @@ function Wordle() {
         return false;
       }
     }
-
     return true;
   }
 
