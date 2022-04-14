@@ -4,10 +4,12 @@ import { wordleList } from '../src/wordleDict'
 function Wordle() {
 
   const [rejected, setRejected] = useState('');
-  const [greenArray, setGreenArray] = useState('');
+  // const [greenArray, setGreenArray] = useState('');
+  const [greenInput, setGreenInput] = useState('');
 
   // const green = []
-  const yellow = []
+  const yellow = [['N', 4]]
+  const greenArray = [['E', 5]]
   let filteredWordle = wordleList;
   
   // REJECTED
@@ -18,7 +20,7 @@ function Wordle() {
 
   // GREEN
   console.log(`Green array`)
-  console.log(greenArray)
+  
   for (let x = 0; x < greenArray.length; x++) {
     let letter = greenArray[x][0];
     let position = greenArray[x][1] - 1;
@@ -73,17 +75,18 @@ function Wordle() {
     )
 
   const validateArray = (arr) => {
+    console.log(`Array Length: ${arr.length} ${arr}`)
     if (arr.length < 2 || arr.length % 2 === 1) {
       return false;
     }
     for (let x = 0; x < arr.length; x++) {
       let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      if (x % 2 === 0 && !letters.includes(arr[x])) {
-        return false;
-      }
-      if (x % 2 === 1 && !(arr[x] >= 1 && arr[x] <= 5)) {
-        return false;
-      }
+      // if (x % 2 === 0 && !letters.includes(arr[x])) {
+      //   return false;
+      // }
+      // if (x % 2 === 1 && !(arr[x] >= 1 && arr[x] <= 5)) {
+      //   return false;
+      // }
     }
     return true;
   }
@@ -93,11 +96,14 @@ function Wordle() {
   }
 
   const updateGreenList = (e) => {
-    let input = e.target.value.toUpperCase();
-    if(validateArray(input) === true) {
+    console.log('---testGreen---')
+    console.log(e.target.value);
+    // setGreenInput(e.target.value.toUpperCase())
+    console.log(`Green Input: ${e.target.value.toUpperCase()}`);
+    if(validateArray(e.target.value.toUpperCase()) === true) {
 
       console.log('IT"S TRUE');
-      greenArray = input
+      // setGreenArray(e.target.value.toUpperCase())
 
     }
 
@@ -145,7 +151,7 @@ function Wordle() {
             <label>Green</label>
             <input
               type="text"
-              value={green}
+              value={greenInput}
               onChange={e => updateGreenList(e)}
             />
           </p>
