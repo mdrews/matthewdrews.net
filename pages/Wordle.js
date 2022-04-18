@@ -8,8 +8,8 @@ function Wordle() {
   const [greenInput, setGreenInput] = useState('');
 
   // const green = []
-  const yellow = []
-  const greenArray = [['E', 4]]
+  const yellow = [['R', 4], ['R', 2]]
+  const greenArray = [['A', 3], ['I', 4]]
   // const greenArray = [];
   let filteredWordle = wordleList;
   
